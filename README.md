@@ -2,7 +2,6 @@
 
 This code stack quality controls CoMeT data (UNL or CMU) from 2024 and 2025 data collection (the '2024' data format).  The output is an ASCII file matched to each original (full) file.  Output format depends on the CoMeT and will be described below.
 
-
 Data are expected to live the following directory structure:
 [Project name]
   [date] 
@@ -10,6 +9,20 @@ Data are expected to live the following directory structure:
 	    Original data
 	    QC’d data
 "Project name" can be any alphanumeric string.  "Date" must be in YYYYMMDD format.  "Label" needs to be a number or "alpha".
+
+QCing is performed by executing the comet_qc_2024 script at the IDL prompt.  Four optional command line arguments are as follows:
+
+/all: Performs QC'ing on all files within the directory tree with a root path defined using the "dir_template" variable.
+
+/nodump: Peforms QC'ing but doesn't create output files.  Useful for debugging. 
+
+/noplot: Plots are not created.
+
+/skipqcd: Don't prompt the user if a file has already been QC'd.  By default, the user is prompted.
+
+Execution relies on the catalog CSV file whose name is set using the "catalog" variable in comet_qc_2024.  An example catalog is provided: comet_qc_2024.csv.  The catalog  specifies which of the QC flags to be performed on each file.  A complete description of each flag can be found in  CoMeT_README_2024_MITTEN-CI.pdf.  Some flags are applied to the entire file while others can be applied to subsets defined using time windows specified in the catalog. The following flags can be applied to subsets of data:
+f1, g1, g3, p1, w1, w2, rh1, tf1, ts1, ts3
+
 
 Output data have a 28 (31) line header for CoMeTs 2, 3, alpha (1).  Each of the 22 fields in the data for CoMeTs 2, 3, and alpha are comma deliminated and are as follows:
 
