@@ -23,6 +23,7 @@ QCing is performed by executing the comet_qc_2024 script at the IDL prompt.  Fou
 Execution relies on the catalog CSV file whose name is set using the "catalog" variable in comet_qc_2024.  An example catalog is provided: comet_qc_2024.csv.  The catalog  specifies which of the QC flags to be performed on each file.  A complete description of each flag can be found in  CoMeT_README_2024_MITTEN-CI.pdf.  Some flags are applied to the entire file while others can be applied to subsets defined using time windows specified in the catalog. The following flags can be applied to subsets of data:
 f1, g1, g3, p1, w1, w2, rh1, tf1, ts1, ts3
 
+Reading of the original (un-QC'd) data requires the CoMeT_data_format CSV file to interpret the format of the input data.  The path to this file is specified in the comet_get_format script.
 
 Output data have a 28 (31) line header for CoMeTs 2, 3, alpha (1).  Each of the 22 fields in the data for CoMeTs 2, 3, and alpha are comma deliminated and are as follows:
 
